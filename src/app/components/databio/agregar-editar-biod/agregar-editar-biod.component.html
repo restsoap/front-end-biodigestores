@@ -1,0 +1,98 @@
+<form>
+    <div class="mb-3">
+      <label for="extensionId" class="form-label">Extensión</label>
+      <input
+        type="text"
+        class="form-control"
+        name="extensionId"
+        [(ngModel)]="extensionId"
+        *ngIf="extension.id != 0"
+      />
+      <select
+        class="form-control"
+        name="extensionId"
+        id="extensionId"
+        [(ngModel)]="extensionId"
+        *ngIf="extension.id == 0"
+      >
+        <option *ngFor="let type of ExtensionList$ | async" [value]="type.id">
+          {{ type.nombre }}
+        </option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="temperaturainterna" class="form-label"
+        >Temperatura interna</label
+      >
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="temperaturainterna"
+        name="temperaturainterna"
+      />
+    </div>
+  
+    <div class="mb-3">
+      <label for="temperaturaexterna" class="form-label"
+        >Temperatura externa</label
+      >
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="temperaturaexterna"
+        name="temperaturaexterna"
+      />
+    </div>
+  
+    <div class="mb-3">
+      <label for="humedad" class="form-label"
+        >Humedad</label
+      >
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="humedad"
+        name="humedad"
+      />
+    </div>
+  
+    <div class="mb-3">
+      <label for="caudal" class="form-label"
+        >Caudal</label
+      >
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="caudal"
+        name="caudal"
+      />
+    </div>
+  
+    <div class="mb-3">
+      <label for="pH" class="form-label"
+        >pH</label
+      >
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="pH"
+        name="pH"
+      />
+    </div>
+  
+    <button
+      (click)="addBiodigestor()"
+      *ngIf="extension.id == 0"
+      class="btn btn-primary m-2"
+    >
+      Agregar
+    </button>
+    <button
+      (click)="updateBiodigestor()"
+      *ngIf="extension.id != 0"
+      class="btn btn-primary m-2"
+    >
+      Editar
+    </button>
+  </form>
+  

@@ -1,0 +1,14 @@
+<table class="table table-striped">
+    <thead>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Municipio</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of ExtensionList$|async">
+            <td>{{item.id}}</td>
+            <td>{{item.nombre}}</td>
+            <td>{{item.ubicacionId}}</td>
+        </tr>
+    </tbody>
+</table>
